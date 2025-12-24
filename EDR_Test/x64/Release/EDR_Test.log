@@ -1,9 +1,10 @@
 ﻿  pch.cpp
   test_file_detector.cpp
+  test_malware_scanner.cpp
   test_process_detector.cpp
   test_registry_detector.cpp
-  Generating Code...
-  EDR_Core.lib(FileDetector.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
-  Generating code
-  Finished generating code
-  EDR_Test.vcxproj -> C:\EDR\EDR\x64\Release\EDR_Test.exe
+  正在產生程式碼...
+  EDR_Core.lib(FileDetector.obj) : 找到 MSIL .netmodule 或以 /GL 編譯的模組。請以 /LTCG 重新啟動連結，將 /LTCG 加入連結命令列以提升連結器效能
+  正在產生程式碼
+  已完成程式碼產生
+  EDR_Test.vcxproj -> C:\Users\ethan\Downloads\EDR\x64\Release\EDR_Test.exe

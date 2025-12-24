@@ -139,8 +139,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="EmbeddedRules.h" />
     <ClInclude Include="FileDetector.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="MalwareScanner.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="ProcessAccessDetector.h" />
     <ClInclude Include="ProcessFinder.h" />
@@ -149,6 +151,7 @@
   <ItemGroup>
     <ClCompile Include="Edr_Core.cpp" />
     <ClCompile Include="FileDetector.cpp" />
+    <ClCompile Include="MalwareScanner.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

@@ -7,11 +7,14 @@
 #include "ProcessAccessDetector.h" 
 #include "ProcessFinder.h"         
 #include "FileDetector.h"
+#include "MalwareScanner.h"
 
 RegistryDetector g_registryDetector;
 ProcessAccessDetector g_accessDetector;
-FileDetector g_fileDetector;
 DWORD g_currentVictimPid = 0;
+FileDetector g_fileDetector;
+MalwareScanner g_Scanner;
+
 
 static const GUID AuditApiCallsGuid = { 0xe02a841c, 0x75a3, 0x4fa7, { 0xaf, 0xc8, 0xae, 0x09, 0xcf, 0x9b, 0x7f, 0x23 } };
 
@@ -25,7 +28,11 @@ void OnRegistryEvent(const EVENT_RECORD& record, const krabs::trace_context& tra
         catch (...) { try { keyName = parser.parse<std::wstring>(L"BaseName"); } catch (...) { return; } }
 
         if (g_registryDetector.Analyze(keyName)) {
-            std::wcout << L"[ALERT] Suspicious Registry Access Detected: " << keyName << std::endl;
+            DWORD pid = schema.process_id();
+            std::wcout << L"[INFO] Triggering Scan for PID: " << pid << std::endl;
+            if (g_Scanner.ScanProcessMemory(pid)) {
+                std::wcout << L"[CRITICAL] MALWARE DETECTED IN MEMORY! PID: " << pid << std::endl;
+            }
         }
     }
 }
@@ -42,6 +49,11 @@ void OnApiCallEvent(const EVENT_RECORD& record, const krabs::trace_context& trac
                 std::wstring attackerName = L"Unknown(PID:" + std::to_wstring(attackerPid) + L")";
                 if (g_accessDetector.IsAccessingVictim(targetPid, attackerName)) {
                     std::wcout << L"[ALERT] Suspicious Process Access from " << attackerName << std::endl;
+                    DWORD pid = schema.process_id();
+                    std::wcout << L"[INFO] Triggering Scan for PID: " << pid << std::endl;
+                    if (g_Scanner.ScanProcessMemory(pid)) {
+                        std::wcout << L"[CRITICAL] MALWARE DETECTED IN MEMORY! PID: " << pid << std::endl;
+                    }
                 }
             }
         }
@@ -59,6 +71,11 @@ void OnFileIoEvent(const EVENT_RECORD& record, const krabs::trace_context& trace
 
         if (g_fileDetector.Analyze(fileName)) {
             std::wcout << L"[ALERT] Sensitive File Accessed: " << fileName << std::endl;
+            DWORD pid = schema.process_id();
+            std::wcout << L"[INFO] Triggering Scan for PID: " << pid << std::endl;
+            if (g_Scanner.ScanProcessMemory(pid)) {
+                std::wcout << L"[CRITICAL] MALWARE DETECTED IN MEMORY! PID: " << pid << std::endl;
+            }
         }
     }
 }
