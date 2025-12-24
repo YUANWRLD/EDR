@@ -1,0 +1,6 @@
+﻿  EDR_Agent.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 1085 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  EDR_Agent.vcxproj -> C:\EDR\EDR\x64\Release\EDR_Agent.exe
