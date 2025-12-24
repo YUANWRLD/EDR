@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BehaviorTracker.h" />
     <ClInclude Include="EmbeddedRules.h" />
     <ClInclude Include="FileDetector.h" />
     <ClInclude Include="framework.h" />
