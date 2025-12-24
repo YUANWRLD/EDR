@@ -24,6 +24,12 @@
     <ClInclude Include="RegistryDetector.h">
       <Filter>來源檔案</Filter>
     </ClInclude>
+    <ClInclude Include="ProcessAccessDetector.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessFinder.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Edr_Core.cpp">
