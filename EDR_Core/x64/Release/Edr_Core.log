@@ -1,4 +1,5 @@
 ﻿  pch.cpp
   Edr_Core.cpp
   FileDetector.cpp
-  EDR_Core.vcxproj -> C:\EDR\EDR\x64\Release\EDR_Core.lib
+  MalwareScanner.cpp
+  EDR_Core.vcxproj -> C:\Users\ethan\Downloads\EDR\x64\Release\EDR_Core.lib

@@ -33,6 +33,12 @@
     <ClInclude Include="RegistryDetector.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
+    <ClInclude Include="EmbeddedRules.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="MalwareScanner.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Edr_Core.cpp">
@@ -42,6 +48,9 @@
       <Filter>來源檔案</Filter>
     </ClCompile>
     <ClCompile Include="FileDetector.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="MalwareScanner.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
   </ItemGroup>
