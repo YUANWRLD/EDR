@@ -141,6 +141,8 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="ProcessAccessDetector.h" />
+    <ClInclude Include="ProcessFinder.h" />
     <ClInclude Include="RegistryDetector.h" />
   </ItemGroup>
   <ItemGroup>
