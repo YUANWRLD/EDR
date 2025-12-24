@@ -1,3 +1,4 @@
-C:\Users\ethan\Downloads\EDR\EDR_Test\pch.cpp;C:\Users\ethan\Downloads\EDR\EDR_Test\x64\Release\pch.obj
-C:\Users\ethan\Downloads\EDR\EDR_Test\test_process_detector.cpp;C:\Users\ethan\Downloads\EDR\EDR_Test\x64\Release\test_process_detector.obj
-C:\Users\ethan\Downloads\EDR\EDR_Test\test_registry_detector.cpp;C:\Users\ethan\Downloads\EDR\EDR_Test\x64\Release\test_registry_detector.obj
+C:\EDR\EDR\EDR_Test\pch.cpp;C:\EDR\EDR\EDR_Test\x64\Release\pch.obj
+C:\EDR\EDR\EDR_Test\test_file_detector.cpp;C:\EDR\EDR\EDR_Test\x64\Release\test_file_detector.obj
+C:\EDR\EDR\EDR_Test\test_process_detector.cpp;C:\EDR\EDR\EDR_Test\x64\Release\test_process_detector.obj
+C:\EDR\EDR\EDR_Test\test_registry_detector.cpp;C:\EDR\EDR\EDR_Test\x64\Release\test_registry_detector.obj

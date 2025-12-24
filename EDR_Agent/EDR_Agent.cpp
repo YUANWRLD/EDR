@@ -6,9 +6,11 @@
 #include "RegistryDetector.h"
 #include "ProcessAccessDetector.h" 
 #include "ProcessFinder.h"         
+#include "FileDetector.h"
 
 RegistryDetector g_registryDetector;
 ProcessAccessDetector g_accessDetector;
+FileDetector g_fileDetector;
 DWORD g_currentVictimPid = 0;
 
 static const GUID AuditApiCallsGuid = { 0xe02a841c, 0x75a3, 0x4fa7, { 0xaf, 0xc8, 0xae, 0x09, 0xcf, 0x9b, 0x7f, 0x23 } };
@@ -47,6 +49,20 @@ void OnApiCallEvent(const EVENT_RECORD& record, const krabs::trace_context& trac
     }
 }
 
+void OnFileIoEvent(const EVENT_RECORD& record, const krabs::trace_context& trace_context) {
+    krabs::schema schema(record, trace_context.schema_locator);
+    if (schema.event_opcode() == 0 || schema.event_opcode() == 64) {
+        krabs::parser parser(schema);
+        std::wstring fileName;
+        try { fileName = parser.parse<std::wstring>(L"FileName"); }
+        catch (...) { try { fileName = parser.parse<std::wstring>(L"OpenPath"); } catch (...) { return; } }
+
+        if (g_fileDetector.Analyze(fileName)) {
+            std::wcout << L"[ALERT] Sensitive File Accessed: " << fileName << std::endl;
+        }
+    }
+}
+
 int main() {
 
     std::wstring victimName = L"bsass.exe";
@@ -63,6 +79,9 @@ int main() {
     pApi.add_on_event_callback(OnApiCallEvent);
     uTrace.enable(pApi);
 
+    krabs::kernel_provider pFile(EVENT_TRACE_FLAG_FILE_IO_INIT, krabs::guids::file_io);
+    pFile.add_on_event_callback(OnFileIoEvent);
+    kTrace.enable(pFile);
 
     std::thread kThread([&]() { kTrace.start(); });
     std::thread uThread([&]() { uTrace.start(); });

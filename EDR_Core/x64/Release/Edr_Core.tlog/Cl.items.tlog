@@ -1,2 +1,3 @@
-C:\Users\ethan\Downloads\EDR\EDR_Core\Edr_Core.cpp;C:\Users\ethan\Downloads\EDR\EDR_Core\x64\Release\Edr_Core.obj
-C:\Users\ethan\Downloads\EDR\EDR_Core\pch.cpp;C:\Users\ethan\Downloads\EDR\EDR_Core\x64\Release\pch.obj
+C:\EDR\EDR\EDR_Core\Edr_Core.cpp;C:\EDR\EDR\EDR_Core\x64\Release\Edr_Core.obj
+C:\EDR\EDR\EDR_Core\FileDetector.cpp;C:\EDR\EDR\EDR_Core\x64\Release\FileDetector.obj
+C:\EDR\EDR\EDR_Core\pch.cpp;C:\EDR\EDR\EDR_Core\x64\Release\pch.obj

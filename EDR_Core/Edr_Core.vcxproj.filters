@@ -21,13 +21,16 @@
     <ClInclude Include="pch.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="RegistryDetector.h">
-      <Filter>來源檔案</Filter>
-    </ClInclude>
     <ClInclude Include="ProcessAccessDetector.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="ProcessFinder.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="FileDetector.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="RegistryDetector.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>
@@ -36,6 +39,9 @@
       <Filter>來源檔案</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="FileDetector.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
   </ItemGroup>

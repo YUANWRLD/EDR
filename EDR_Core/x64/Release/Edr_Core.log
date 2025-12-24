@@ -1,3 +1,4 @@
 ﻿  pch.cpp
   Edr_Core.cpp
-  EDR_Core.vcxproj -> C:\Users\ethan\Downloads\EDR\x64\Release\EDR_Core.lib
+  FileDetector.cpp
+  EDR_Core.vcxproj -> C:\EDR\EDR\x64\Release\EDR_Core.lib
